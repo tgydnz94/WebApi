@@ -11,7 +11,7 @@ namespace Business.WebApi.Abstract
 {
     public interface IBrandService
     {
-        CreatedBrandResponse Add(CreateBrandRequest brand);
+        CreatedBrandResponse Add(CreateBrandRequest createBrandRequest);
         List<Brand> GetAll();
     }
     //responses and requests
