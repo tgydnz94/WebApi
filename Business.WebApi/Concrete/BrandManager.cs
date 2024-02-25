@@ -41,9 +41,21 @@ namespace Business.WebApi.Concrete
             return createdBrandResponse;
         }
 
-        public List<Brand> GetAll()
+        public List<GetAllBrandResponse> GetAll()
         {
-            throw new NotImplementedException();
+            List<Brand> brands = _brandDal.GetAll();
+            List<GetAllBrandResponse> getAllBrandResponses = new List<GetAllBrandResponse>();
+            foreach (Brand brand in brands)
+            {
+               GetAllBrandResponse allBrandResponse = new GetAllBrandResponse();
+                allBrandResponse.Name = brand.Name;
+                allBrandResponse.Id = brand.Id;
+                allBrandResponse.CreatedDate = brand.CreatedDate;
+
+                getAllBrandResponses.Add(allBrandResponse);
+            }
+
+            return getAllBrandResponses;
         }
     }
 }
